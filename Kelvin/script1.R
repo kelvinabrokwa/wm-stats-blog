@@ -9,8 +9,6 @@ library(reshape2)
 data.long <- melt(data.wide, id.vars=c("Year"))
 View(data.long)
 
-plot(data.long)
-
 
 motion = gvisMotionChart(data.long, idvar="variable", timevar="Year")
 plot(motion)
