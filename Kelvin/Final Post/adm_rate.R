@@ -28,5 +28,6 @@ df_adm_rate <- data.frame(year, Male=male_adm_rate, Female=fem_adm_rate)
 line_adm_rate <- gvisLineChart(df_adm_rate,
                                options=list(title="Acceptance Rate (number accepted / number of applicants)",
                                             vAxes="[{title:'Percentage'}]",
-                                            hAxes="[{title:'Year'}]"))
+                                            hAxes="[{title:'Year'}]",
+                                            chartArea.width=500))
 plot(line_adm_rate)

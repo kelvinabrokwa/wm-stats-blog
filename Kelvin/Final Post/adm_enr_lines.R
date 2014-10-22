@@ -23,8 +23,6 @@ df_enr <- data.frame(year, Male=male_enr, Female=fem_enr)
 
 df_adm_enr <- data.frame(year,Male_Admission,Female_Admission,Male_Enrollment,Female_Enrollment)
 
-
-
 line_adm_enr <- gvisLineChart(df_adm_enr,
                               options=list(title="Number of Students Admitted Compared to Number of Students Enrolled",
                                            vAxes="[{title:'Number of Students'}]",
