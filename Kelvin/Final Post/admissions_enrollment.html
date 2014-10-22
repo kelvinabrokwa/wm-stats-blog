@@ -1,0 +1,216 @@
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
+<!-- Sun Oct 19 18:41:40 2014 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataLineChartID1369218079dc () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "1997",
+1242,
+1791,
+526,
+0 
+],
+[
+ "1998",
+1332,
+1752,
+589,
+0 
+],
+[
+ "1999",
+1343,
+1747,
+563,
+0 
+],
+[
+ "2000",
+1369,
+1933,
+566,
+1 
+],
+[
+ "2001",
+1391,
+1831,
+566,
+0 
+],
+[
+ "2002",
+1365,
+1724,
+595,
+1 
+],
+[
+ "2003",
+1604,
+1884,
+588,
+0 
+],
+[
+ "2004",
+1535,
+1831,
+655,
+1 
+],
+[
+ "2005",
+1596,
+1696,
+626,
+2 
+],
+[
+ "2006",
+1671,
+1797,
+649,
+3 
+],
+[
+ "2007",
+1713,
+1942,
+616,
+1 
+],
+[
+ "2008",
+1859,
+2107,
+605,
+0 
+],
+[
+ "2009",
+1993,
+2065,
+662,
+3 
+],
+[
+ "2010",
+1834,
+2144,
+606,
+1 
+],
+[
+ "2011",
+2081,
+2362,
+658,
+0 
+],
+[
+ "2012",
+2005,
+2389,
+663,
+1 
+],
+[
+ "2013",
+2101,
+2564,
+652,
+0 
+] 
+];
+data.addColumn('string','year');
+data.addColumn('number','male_adm');
+data.addColumn('number','fem_adm');
+data.addColumn('number','male_enr');
+data.addColumn('number','fem_enr');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartLineChartID1369218079dc() {
+var data = gvisDataLineChartID1369218079dc();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Number of Students Admitted Compared to Number of Students Enrolled";
+options["vAxes"] = [{title:'Number of Students'}];
+options["hAxes"] = [{title:'Year'}];
+
+
+    var chart = new google.visualization.LineChart(
+    document.getElementById('LineChartID1369218079dc')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartLineChartID1369218079dc);
+})();
+function displayChartLineChartID1369218079dc() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID1369218079dc"></script>
+
+
+<!-- divChart -->
+  
+<div id="LineChartID1369218079dc" 
+  style="width: 500; height: automatic;">
+</div>
+

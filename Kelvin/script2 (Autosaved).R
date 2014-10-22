@@ -6,4 +6,3 @@ View(data.long)
 
 motion = gvisMotionChart(data.long, idvar="variable", timevar="Year")
 plot(motion)
-print(motion, file="motion_chart.html")
