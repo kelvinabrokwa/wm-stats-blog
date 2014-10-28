@@ -1,7 +1,7 @@
 # Written by: Kelvin Abrokwa-Johnson
 # Total Applications Stacked Chart
 
-setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/kelvin')   # Make sure to change this working directory to fit your computer
+setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/admissions/kelvin/final post')   # Make sure to change this working directory to fit your computer
 
 library(googleVis)
 
@@ -30,5 +30,7 @@ stacked_chart <- gvisSteppedAreaChart(df_stacked, xvar="year",
                                       options=list(title="Total Number of Applicants",
                                                    isStacked=TRUE,
                                                    vAxes="[{title:'Total Number of Applicants'}]",
-                                                   hAxes="[{title:'Year'}]"))
+                                                   hAxes="[{title:'Year'}]",
+                                                   fontSize=10,
+                                                   width=550))
 plot(stacked_chart)

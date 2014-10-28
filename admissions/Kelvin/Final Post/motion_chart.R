@@ -1,7 +1,7 @@
 # Written by: Kelvin Abrokwa-Johnson
 # Admissions statistics motion chart
 
-setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/kelvin')   # Make sure to change this working directory to fit your computer
+setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/admissions/kelvin/final post')   # Make sure to change this working directory to fit your computer
 
 library(googleVis)
 
