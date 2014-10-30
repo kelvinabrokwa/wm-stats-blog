@@ -3,7 +3,7 @@
 
 library(googleVis)
 
-setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/kelvin')   # Make sure to change this working directory to fit your computer
+setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/admissions/kelvin/final post')   # Make sure to change this working directory to fit your computer
 
 raw = read.csv('agg_data_4.csv', header=TRUE, check.names=FALSE)
 
@@ -26,5 +26,7 @@ df_adm_enr <- data.frame(year,Male_Admission,Female_Admission,Male_Enrollment,Fe
 line_adm_enr <- gvisLineChart(df_adm_enr,
                               options=list(title="Number of Students Admitted Compared to Number of Students Enrolled",
                                            vAxes="[{title:'Number of Students'}]",
-                                           hAxes="[{title:'Year'}]"))
+                                           hAxes="[{title:'Year'}]",
+                                           fontSize=9,
+                                           width=550))
 plot(line_adm_enr)

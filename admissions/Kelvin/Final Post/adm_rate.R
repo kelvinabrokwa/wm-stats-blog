@@ -1,7 +1,7 @@
 # Written by: Kelvin Abrokwa-Johnson
 # Admissions Rate Line Chart
 
-setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/kelvin')   # Make sure to change this working directory to fit your computer
+setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/admissions/kelvin/final post')   # Make sure to change this working directory to fit your computer
 
 library(googleVis)
 
@@ -29,5 +29,6 @@ line_adm_rate <- gvisLineChart(df_adm_rate,
                                options=list(title="Acceptance Rate (number accepted / number of applicants)",
                                             vAxes="[{title:'Percentage'}]",
                                             hAxes="[{title:'Year'}]",
-                                            chartArea.width=500))
+                                            fontSize=10,
+                                            width=550))
 plot(line_adm_rate)

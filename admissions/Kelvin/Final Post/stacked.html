@@ -1,5 +1,5 @@
 <!-- SteppedAreaChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Sun Oct 19 18:42:05 2014 -->
+<!-- Wed Oct 22 22:11:43 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,7 +7,7 @@
 
 
 // jsData 
-function gvisDataSteppedAreaChartID136979c06bb2 () {
+function gvisDataSteppedAreaChartID877028d92ace () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -106,18 +106,20 @@ return(data);
 
 
 // jsDrawChart
-function drawChartSteppedAreaChartID136979c06bb2() {
-var data = gvisDataSteppedAreaChartID136979c06bb2();
+function drawChartSteppedAreaChartID877028d92ace() {
+var data = gvisDataSteppedAreaChartID877028d92ace();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Total Number of Applicants";
 options["isStacked"] = true;
 options["vAxes"] = [{title:'Total Number of Applicants'}];
 options["hAxes"] = [{title:'Year'}];
+options["fontSize"] =     10;
+options["width"] =    550;
 
 
     var chart = new google.visualization.SteppedAreaChart(
-    document.getElementById('SteppedAreaChartID136979c06bb2')
+    document.getElementById('SteppedAreaChartID877028d92ace')
     );
     chart.draw(data,options);
     
@@ -142,9 +144,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartSteppedAreaChartID136979c06bb2);
+callbacks.push(drawChartSteppedAreaChartID877028d92ace);
 })();
-function displayChartSteppedAreaChartID136979c06bb2() {
+function displayChartSteppedAreaChartID877028d92ace() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -170,12 +172,12 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSteppedAreaChartID136979c06bb2"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSteppedAreaChartID877028d92ace"></script>
 
 
 <!-- divChart -->
   
-<div id="SteppedAreaChartID136979c06bb2" 
-  style="width: 500; height: automatic;">
+<div id="SteppedAreaChartID877028d92ace" 
+  style="width: 550px; height: automatic;">
 </div>
 

@@ -1,5 +1,5 @@
 <!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Sun Oct 19 18:41:40 2014 -->
+<!-- Wed Oct 22 22:08:44 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,7 +7,7 @@
 
 
 // jsData 
-function gvisDataLineChartID1369218079dc () {
+function gvisDataLineChartID87702710a914 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -16,143 +16,145 @@ var datajson =
 1242,
 1791,
 526,
-0 
+802 
 ],
 [
  "1998",
 1332,
 1752,
 589,
-0 
+702 
 ],
 [
  "1999",
 1343,
 1747,
 563,
-0 
+736 
 ],
 [
  "2000",
 1369,
 1933,
 566,
-1 
+782 
 ],
 [
  "2001",
 1391,
 1831,
 566,
-0 
+793 
 ],
 [
  "2002",
 1365,
 1724,
 595,
-1 
+722 
 ],
 [
  "2003",
 1604,
 1884,
 588,
-0 
+737 
 ],
 [
  "2004",
 1535,
 1831,
 655,
-1 
+684 
 ],
 [
  "2005",
 1596,
 1696,
 626,
-2 
+714 
 ],
 [
  "2006",
 1671,
 1797,
 649,
-3 
+695 
 ],
 [
  "2007",
 1713,
 1942,
 616,
-1 
+729 
 ],
 [
  "2008",
 1859,
 2107,
 605,
-0 
+781 
 ],
 [
  "2009",
 1993,
 2065,
 662,
-3 
+729 
 ],
 [
  "2010",
 1834,
 2144,
 606,
-1 
+791 
 ],
 [
  "2011",
 2081,
 2362,
 658,
-0 
+827 
 ],
 [
  "2012",
 2005,
 2389,
 663,
-1 
+802 
 ],
 [
  "2013",
 2101,
 2564,
 652,
-0 
+827 
 ] 
 ];
 data.addColumn('string','year');
-data.addColumn('number','male_adm');
-data.addColumn('number','fem_adm');
-data.addColumn('number','male_enr');
-data.addColumn('number','fem_enr');
+data.addColumn('number','Male_Admission');
+data.addColumn('number','Female_Admission');
+data.addColumn('number','Male_Enrollment');
+data.addColumn('number','Female_Enrollment');
 data.addRows(datajson);
 return(data);
 }
 
 
 // jsDrawChart
-function drawChartLineChartID1369218079dc() {
-var data = gvisDataLineChartID1369218079dc();
+function drawChartLineChartID87702710a914() {
+var data = gvisDataLineChartID87702710a914();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Number of Students Admitted Compared to Number of Students Enrolled";
 options["vAxes"] = [{title:'Number of Students'}];
 options["hAxes"] = [{title:'Year'}];
+options["fontSize"] =      9;
+options["width"] =    550;
 
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID1369218079dc')
+    document.getElementById('LineChartID87702710a914')
     );
     chart.draw(data,options);
     
@@ -177,9 +179,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID1369218079dc);
+callbacks.push(drawChartLineChartID87702710a914);
 })();
-function displayChartLineChartID1369218079dc() {
+function displayChartLineChartID87702710a914() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -205,12 +207,12 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID1369218079dc"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID87702710a914"></script>
 
 
 <!-- divChart -->
   
-<div id="LineChartID1369218079dc" 
-  style="width: 500; height: automatic;">
+<div id="LineChartID87702710a914" 
+  style="width: 550px; height: automatic;">
 </div>
 
