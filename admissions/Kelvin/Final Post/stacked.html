@@ -1,0 +1,183 @@
+<!-- SteppedAreaChart generated in R 3.1.1 by googleVis 0.5.4 package -->
+<!-- Wed Oct 22 22:11:43 2014 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataSteppedAreaChartID877028d92ace () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "1997",
+2418,
+4173 
+],
+[
+ "1998",
+2527,
+4304 
+],
+[
+ "1999",
+2508,
+4370 
+],
+[
+ "2000",
+2960,
+5169 
+],
+[
+ "2001",
+3173,
+5437 
+],
+[
+ "2002",
+3201,
+5710 
+],
+[
+ "2003",
+3864,
+6297 
+],
+[
+ "2004",
+3609,
+5998 
+],
+[
+ "2005",
+4006,
+6604 
+],
+[
+ "2006",
+3812,
+6910 
+],
+[
+ "2007",
+3930,
+6923 
+],
+[
+ "2008",
+4309,
+7327 
+],
+[
+ "2009",
+4457,
+7652 
+],
+[
+ "2010",
+4653,
+7884 
+],
+[
+ "2011",
+4753,
+8072 
+],
+[
+ "2012",
+4928,
+8732 
+],
+[
+ "2013",
+5150,
+8896 
+] 
+];
+data.addColumn('string','year');
+data.addColumn('number','Males');
+data.addColumn('number','Females');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartSteppedAreaChartID877028d92ace() {
+var data = gvisDataSteppedAreaChartID877028d92ace();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Total Number of Applicants";
+options["isStacked"] = true;
+options["vAxes"] = [{title:'Total Number of Applicants'}];
+options["hAxes"] = [{title:'Year'}];
+options["fontSize"] =     10;
+options["width"] =    550;
+
+
+    var chart = new google.visualization.SteppedAreaChart(
+    document.getElementById('SteppedAreaChartID877028d92ace')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartSteppedAreaChartID877028d92ace);
+})();
+function displayChartSteppedAreaChartID877028d92ace() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSteppedAreaChartID877028d92ace"></script>
+
+
+<!-- divChart -->
+  
+<div id="SteppedAreaChartID877028d92ace" 
+  style="width: 550px; height: automatic;">
+</div>
+

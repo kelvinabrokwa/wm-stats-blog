@@ -1,0 +1,22 @@
+y = x**2
+View(stcars)
+View(mtcars)
+example(persp)
+mydata = read.csv("data.csv")
+install.packages("survey")
+library(survey)
+help()
+mtcars <- data.frame("mtcars")
+head(mtcars)
+mtcars <- mtcars
+head(mtcars)
+mtcars <- "mtcars"
+head(mtcars)
+'mtcars'
+mtcars <- read.table("mtcars")
+data(mtcars)
+mtcars <- data(mtcars)
+head(mtcars)
+ption and so I get texts way late
+source("/Users/kelvinabrokwa/Documents/Repositories/wm-stats-blog/Kelvin/script2.R")
+source("/Users/kelvinabrokwa/Documents/Repositories/wm-stats-blog/Kelvin/script2.R")
