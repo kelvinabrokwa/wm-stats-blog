@@ -1,0 +1,253 @@
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
+<!-- Sun Nov  2 12:48:39 2014 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataLineChartID65f036705ff1 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Spring 2005",
+3.22,
+3.54,
+3.39,
+3.44,
+3.3 
+],
+[
+ "Fall 2005",
+3.26,
+3.42,
+3.33,
+3.37,
+3.17 
+],
+[
+ "Spring 2006",
+3.25,
+3.42,
+3.39,
+3.47,
+3.45 
+],
+[
+ "Fall 2006",
+3.2149,
+3.4132,
+3.3386,
+3.3257,
+3.3074 
+],
+[
+ "Spring 2007",
+3.3278,
+3.4911,
+3.4706,
+3.4644,
+3.3921 
+],
+[
+ "Fall 2007",
+3.2667,
+3.3252,
+3.3925,
+3.3481,
+3.3067 
+],
+[
+ "Spring 2008",
+3.2993,
+3.4415,
+3.4519,
+3.3745,
+3.4069 
+],
+[
+ "Fall 2008",
+3.2867,
+3.3853,
+3.3062,
+3.3259,
+3.2933 
+],
+[
+ "Spring 2009",
+3.4121,
+3.4447,
+3.3856,
+3.4062,
+3.4057 
+],
+[
+ "Fall 2009",
+3.3675,
+3.3512,
+3.2671,
+3.3102,
+3.2337 
+],
+[
+ "Spring 2010",
+3.4029,
+3.4095,
+3.3453,
+3.3934,
+3.3214 
+],
+[
+ "Fall 2010",
+3.2503,
+3.2573,
+3.2994,
+3.3657,
+3.3198 
+],
+[
+ "Spring 2011",
+3.3678,
+3.3853,
+3.404,
+3.4276,
+3.3984 
+],
+[
+ "Fall 2011",
+3.2434,
+3.2694,
+3.445,
+3.3138,
+3.2835 
+],
+[
+ "Spring 2012",
+3.3836,
+3.3305,
+3.4716,
+3.4189,
+3.3977 
+],
+[
+ "Fall 2012",
+3.2961,
+3.3035,
+3.4012,
+3.3452,
+3.2323 
+],
+[
+ "Spring 2013",
+3.4161,
+3.4244,
+3.5057,
+3.4878,
+3.457 
+],
+[
+ "Fall 2013",
+3.3104,
+3.3299,
+3.4374,
+3.4236,
+3.3449 
+],
+[
+ "Spring 2014",
+3.421,
+3.419,
+3.4699,
+3.4812,
+3.4764 
+] 
+];
+data.addColumn('string','Time');
+data.addColumn('number','Delta Gamma');
+data.addColumn('number','Gamma Phi Beta');
+data.addColumn('number','Kappa Alpha Theta');
+data.addColumn('number','Kappa Delta');
+data.addColumn('number','Kappa Kappa Gamma');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartLineChartID65f036705ff1() {
+var data = gvisDataLineChartID65f036705ff1();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Sorority GPA";
+options["fontSize"] =     10;
+options["vAxis.viewWindowMode"] = "pretty";
+options["hAxis.slantedTextAngle"] =     90;
+options["hAxis.textStyle"] = {fontSize:7};
+options["width"] =    600;
+options["height"] =    500;
+
+
+    var chart = new google.visualization.LineChart(
+    document.getElementById('LineChartID65f036705ff1')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartLineChartID65f036705ff1);
+})();
+function displayChartLineChartID65f036705ff1() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID65f036705ff1"></script>
+
+
+<!-- divChart -->
+  
+<div id="LineChartID65f036705ff1" 
+  style="width: 600; height: 500;">
+</div>

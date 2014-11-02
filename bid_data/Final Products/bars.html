@@ -1,0 +1,232 @@
+<!-- BarChart generated in R 3.1.1 by googleVis 0.5.4 package -->
+<!-- Sun Nov  2 12:44:18 2014 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataBarChartID65f063cc824 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Spring 2005",
+2233,
+1928,
+826,
+576 
+],
+[
+ "Fall 2005",
+2173,
+1917,
+832,
+605 
+],
+[
+ "Spring 2006",
+2164,
+1967,
+841,
+555 
+],
+[
+ "Fall 2006",
+2203,
+2014,
+834,
+578 
+],
+[
+ "Spring 2007",
+2226,
+1978,
+811,
+614 
+],
+[
+ "Fall 2007",
+2216,
+2049,
+855,
+583 
+],
+[
+ "Spring 2008",
+2228,
+1968,
+843,
+664 
+],
+[
+ "Fall 2008",
+2280,
+1979,
+873,
+644 
+],
+[
+ "Spring 2009",
+2309,
+1951,
+844,
+672 
+],
+[
+ "Fall 2009",
+2262,
+2036,
+870,
+592 
+],
+[
+ "Spring 2010",
+2276,
+1967,
+856,
+661 
+],
+[
+ "Fall 2010",
+2335,
+2001,
+861,
+645 
+],
+[
+ "Spring 2011",
+2324,
+1958,
+872,
+688 
+],
+[
+ "Fall 2011",
+2422,
+2011,
+877,
+677 
+],
+[
+ "Spring 2012",
+2458,
+2009,
+841,
+679 
+],
+[
+ "Fall 2012",
+2390,
+2080,
+942,
+685 
+],
+[
+ "Spring 2013",
+2434,
+2081,
+898,
+684 
+],
+[
+ "Fall 2013",
+2451,
+2102,
+967,
+675 
+],
+[
+ "Spring 2014",
+2452,
+2056,
+966,
+721 
+] 
+];
+data.addColumn('string','Time');
+data.addColumn('number','Indie Women');
+data.addColumn('number','Indie Men');
+data.addColumn('number','Number in Sorority');
+data.addColumn('number','Number in Fraternity');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartBarChartID65f063cc824() {
+var data = gvisDataBarChartID65f063cc824();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Population Distribution";
+options["isStacked"] = true;
+options["bars"] = "horizontal";
+options["width"] =    600;
+options["height"] =    500;
+
+
+    var chart = new google.visualization.BarChart(
+    document.getElementById('BarChartID65f063cc824')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartBarChartID65f063cc824);
+})();
+function displayChartBarChartID65f063cc824() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID65f063cc824"></script>
+
+
+<!-- divChart -->
+  
+<div id="BarChartID65f063cc824" 
+  style="width: 600; height: 500;">
+</div>
+
