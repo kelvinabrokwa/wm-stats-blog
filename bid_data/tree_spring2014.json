@@ -1,0 +1,44 @@
+{"Fraternities":
+{
+	"Alpha Epsilon Pi": 21,
+	"Alpha Phi Alpha": 6,
+	"Alpha Tau Omega": 49,
+	"Beta Theta Pi": 88,
+	"Chi Phi": 16,
+	"Delta Chi": 64,	
+	"Delta Phi": 45,
+	"Kappa Alpha":44,
+	"Kappa Alpha Psi": 9,	
+	"Kappa Delta Rho": 78,
+	"Kappa Sigma": 62,
+	"Lambda Chi Alpha": "NA",
+	"Omega Psi Phi": 4,
+	"Phi Beta Sigma": "NA",
+	"Phi Kappa Tau": "NA",
+	"Pi Kappa Alpha": 50,
+	"Psi Upsilon": "NA",
+	"Sigma Alpha Epsilon": 31,
+	"Sigma Chi": 46,
+	"Sigma Phi Epsilon": 38,
+	"Sigma Pi": 51,	
+	"Theta Delta Chi": "NA"
+},
+"Sororities":
+{
+	"Alpha Chi Omga": 87,
+	"Alpha Kappa Alpha": 26,
+	"Chi Omega": 104,
+	"Delta Delta Delta": 104,
+	"Delta Gamma": 105,
+	"Delta Sigma Theta": 10,
+	"Gamma Phi Beta": 107,
+	"Kappa Alpha Theta": 107,
+	"Kappa Delta": 105,
+	"Kappa Kappa Gamma": 97,
+	"Phi Mu": "NA",
+	"Pi Beta Phi": 97,
+	"Sigma Gamma Rho": 2,
+	"Sigma Iota Alpha": 11,
+	"Zeta Phi Beta": 2
+}
+}
