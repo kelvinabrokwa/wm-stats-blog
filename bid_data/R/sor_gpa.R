@@ -1,11 +1,16 @@
 setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/bid_data/raw_data/')
 
+<<<<<<< HEAD
 data_sor = read.csv('sor_gpa2.csv',header=TRUE,check.names=FALSE)
+=======
+data_sor = read.csv('sor_gpa2.csv',header=TRUE)
+>>>>>>> FETCH_HEAD
 
 data_df_sor <- data.frame(data_sor,check.names=FALSE)
 
 df_sor <- data_df_sor[c(1,6,8,9,10,11)]
 
+<<<<<<< HEAD
 line_sor <- gvisLineChart(df_sor, xvar='Time', yvar=colnames(df_sor[-1]),
                       options=list(
                         title='Sorority GPA',
@@ -16,6 +21,18 @@ line_sor <- gvisLineChart(df_sor, xvar='Time', yvar=colnames(df_sor[-1]),
                         width=600,
                         height=500))
 plot(line_sor)
+=======
+line <- gvisLineChart(df_sor, xvar='Time', yvar=colnames(df_sor[-1]),
+                      options=list(
+                        title='Sorority GPA',
+                        fontSize=10,
+                        vAxis.viewWindowMode='pretty',
+                        vAxis.viewWindow.max=3.6,
+                        vAxis.viewWindow.min=3.15,
+                        width=600,
+                        height=500))
+plot(line)
+>>>>>>> FETCH_HEAD
 
 # Higher Mean GPA
 # Kappa Delta: 3.394
