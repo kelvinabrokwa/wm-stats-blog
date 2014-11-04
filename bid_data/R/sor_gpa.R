@@ -9,12 +9,10 @@ df_sor <- data_df_sor[c(1,6,8,9,10,11)]
 line_sor <- gvisLineChart(df_sor, xvar='Time', yvar=colnames(df_sor[-1]),
                       options=list(
                         title='Sorority GPA',
-                        fontSize=10,
-                        vAxis.viewWindowMode='pretty',
-                        hAxis.slantedTextAngle=90,
-                        hAxis.textStyle='{fontSize:7}',
+                        fontSize=11,
+                        hAxis="{textStyle:{fontSize:7.5}}",
                         width=600,
-                        height=500))
+                        height=400))
 plot(line_sor)
 
 # Higher Mean GPA

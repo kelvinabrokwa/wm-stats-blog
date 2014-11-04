@@ -10,6 +10,7 @@ df_bar2 <- df_bar1[c(1,11,12,8,9)]
 bar <- gvisBarChart(df_bar2, xvar="Time", yvar=colnames(df_bar2[-1]),
                     options=list(title='Population Distribution',
                                  isStacked=TRUE,
+                                 fontSize=11,
                                  bars='horizontal',
                                  width=600,
                                  height=500))
