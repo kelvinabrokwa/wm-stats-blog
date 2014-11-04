@@ -1,5 +1,7 @@
 setwd('/users/kelvinabrokwa/documents/repositories/wm-stats-blog/bid_data/raw_data/')
 
+library(googleVis)
+
 <<<<<<< HEAD
 data = read.csv('frat_gpa2.csv',header=TRUE,check.names=FALSE)
 
@@ -10,8 +12,7 @@ line_frat <- gvisLineChart(df, xvar='Time', yvar=colnames(df[-1]),
                       options=list(
                         title='Fraternity GPA',
                         fontSize=11,
-                        vAxis.viewWindowMode='pretty',
-                        hAxis="[{textStyle:7}]",
+                        hAxis="{textStyle:{fontSize:7.5}}",
                         width=600,
                         height=400))
 
