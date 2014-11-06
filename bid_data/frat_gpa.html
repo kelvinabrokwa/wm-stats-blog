@@ -1,5 +1,5 @@
 <!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Wed Nov  5 21:42:46 2014 -->
+<!-- Sun Nov  2 01:46:33 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,7 +7,7 @@
 
 
 // jsData 
-function gvisDataLineChartID7c5041e76cf2 () {
+function gvisDataLineChartID65f030dcf43c () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -165,30 +165,30 @@ null
 ] 
 ];
 data.addColumn('string','Time');
-data.addColumn('number','Alpha Epsilon Pi');
-data.addColumn('number','Alpha Tau Omega');
-data.addColumn('number','Beta Theta Pi');
-data.addColumn('number','Delta Phi');
-data.addColumn('number','Sigma Phi Epsilon');
+data.addColumn('number','Alpha.Epsilon.Pi');
+data.addColumn('number','Alpha.Tau.Omega');
+data.addColumn('number','Beta.Theta.Pi');
+data.addColumn('number','Delta.Phi');
+data.addColumn('number','Sigma.Phi.Epsilon');
 data.addRows(datajson);
 return(data);
 }
 
 
 // jsDrawChart
-function drawChartLineChartID7c5041e76cf2() {
-var data = gvisDataLineChartID7c5041e76cf2();
+function drawChartLineChartID65f030dcf43c() {
+var data = gvisDataLineChartID65f030dcf43c();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Fraternity GPA";
-options["fontSize"] =     11;
-options["hAxis"] = {textStyle:{fontSize:7.5}};
+options["fontSize"] =     10;
+options["vAxis.viewWindowMode"] = "pretty";
 options["width"] =    600;
-options["height"] =    400;
+options["height"] =    300;
 
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID7c5041e76cf2')
+    document.getElementById('LineChartID65f030dcf43c')
     );
     chart.draw(data,options);
     
@@ -213,9 +213,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID7c5041e76cf2);
+callbacks.push(drawChartLineChartID65f030dcf43c);
 })();
-function displayChartLineChartID7c5041e76cf2() {
+function displayChartLineChartID65f030dcf43c() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -241,12 +241,11 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID7c5041e76cf2"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID65f030dcf43c"></script>
 
 
 <!-- divChart -->
   
-<div id="LineChartID7c5041e76cf2" 
-  style="width: 600px; height: 400px;">
+<div id="LineChartID65f030dcf43c" 
+  style="width: 600; height: 300;">
 </div>
-

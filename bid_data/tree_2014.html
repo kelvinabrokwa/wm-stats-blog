@@ -8,13 +8,13 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Group', 'Parent', 'Number', 'Color'],
-            ['Number of Students: 2014', null,0,0],
-            ['Greek', 'Number of Students: 2014',0,0],
+            ['All', null,0,0],
+            ['Greek', 'All',0,0],
             ['Fraternities','Greek',0,0],
             ['Sororities','Greek',0,0],
-            ['Independent','Number of Students: 2014',0,0],
-            ['Men','Independent',2055,.71],
-            ['Women','Independent',2452,.79],
+            ['Independent','All',0,0],
+            ['Unaffiliated Men','Independent',2055,.71],
+            ['Unaffiliated Women','Independent',2452,.79],
             ['Alpha Epsilon Pi','Fraternities',21.0, 0.21],
             ['Alpha Phi Alpha','Fraternities',6.0, 0.06],
             ['Alpha Tau Omega','Fraternities',49.0, 0.49],
@@ -74,6 +74,5 @@
   </head>
   <body>
     <div class='container' id="tree_2014_div" style="width: 600px; height: 400px;"></div>
-    <aside style="font-size:small">Shape area based on relative population size. Click a category to zoom in or right-click to move up the hierarchy</aside>
   </body>
 </html>
