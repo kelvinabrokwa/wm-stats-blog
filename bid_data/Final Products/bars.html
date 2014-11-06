@@ -1,5 +1,5 @@
 <!-- BarChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Sun Nov  2 12:44:18 2014 -->
+<!-- Wed Nov  5 21:43:43 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,7 +7,7 @@
 
 
 // jsData 
-function gvisDataBarChartID65f063cc824 () {
+function gvisDataBarChartID7c5034839eb3 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -156,19 +156,20 @@ return(data);
 
 
 // jsDrawChart
-function drawChartBarChartID65f063cc824() {
-var data = gvisDataBarChartID65f063cc824();
+function drawChartBarChartID7c5034839eb3() {
+var data = gvisDataBarChartID7c5034839eb3();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Population Distribution";
 options["isStacked"] = true;
+options["fontSize"] =     11;
 options["bars"] = "horizontal";
 options["width"] =    600;
 options["height"] =    500;
 
 
     var chart = new google.visualization.BarChart(
-    document.getElementById('BarChartID65f063cc824')
+    document.getElementById('BarChartID7c5034839eb3')
     );
     chart.draw(data,options);
     
@@ -193,9 +194,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartBarChartID65f063cc824);
+callbacks.push(drawChartBarChartID7c5034839eb3);
 })();
-function displayChartBarChartID65f063cc824() {
+function displayChartBarChartID7c5034839eb3() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -221,12 +222,12 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID65f063cc824"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID7c5034839eb3"></script>
 
 
 <!-- divChart -->
   
-<div id="BarChartID65f063cc824" 
-  style="width: 600; height: 500;">
+<div id="BarChartID7c5034839eb3" 
+  style="width: 600px; height: 500px;">
 </div>
 

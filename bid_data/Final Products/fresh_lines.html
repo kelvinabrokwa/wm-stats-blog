@@ -1,5 +1,5 @@
 <!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Wed Nov  5 21:42:46 2014 -->
+<!-- Wed Nov  5 21:44:24 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,188 +7,90 @@
 
 
 // jsData 
-function gvisDataLineChartID7c5041e76cf2 () {
+function gvisDataLineChartID7c502d2814b4 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- "Spring 2005",
-3.44,
-null,
-3.17,
-3.12,
-null 
+ "2006-2007",
+18,
+22,
+18,
+27 
 ],
 [
- "Fall 2005",
-3.43,
-null,
-3.11,
-3.01,
-null 
+ "2007-2008",
+14,
+22,
+21,
+27 
 ],
 [
- "Spring 2006",
-3.38,
-null,
-3.25,
-3.23,
-null 
+ "2008-2009",
+18,
+25,
+19,
+27 
 ],
 [
- "Fall 2006",
-3.25,
-3.4857,
-3.2449,
-3.1533,
-null 
+ "2009-2010",
+16,
+25,
+18,
+29 
 ],
 [
- "Spring 2007",
-3.177,
-2.9209,
-3.3037,
-2.9774,
-null 
+ "2010-2011",
+17,
+27,
+17,
+28 
 ],
 [
- "Fall 2007",
-3.087,
-2.9603,
-3.2492,
-3.2344,
-null 
+ "2011-2012",
+15,
+26,
+18,
+28 
 ],
 [
- "Spring 2008",
-3.2414,
-3.0372,
-3.3111,
-3.1475,
-null 
+ "2012-2013",
+16,
+25,
+22,
+30 
 ],
 [
- "Fall 2008",
-3.332,
-3.2251,
-3.2785,
-3.1701,
-null 
-],
-[
- "Spring 2009",
-3.3849,
-3.23,
-3.3524,
-3.2081,
-null 
-],
-[
- "Fall 2009",
-3.2359,
-3.3167,
-3.2258,
-3.2369,
-null 
-],
-[
- "Spring 2010",
-3.3702,
-3.3002,
-3.2396,
-3.2328,
-null 
-],
-[
- "Fall 2010",
-3.1956,
-3.379,
-3.1761,
-3.2385,
-3.3325 
-],
-[
- "Spring 2011",
-3.1235,
-3.3492,
-3.294,
-3.3232,
-3.4612 
-],
-[
- "Fall 2011",
-3.3365,
-3.2557,
-3.28,
-3.2564,
-3.3253 
-],
-[
- "Spring 2012",
-3.3752,
-3.2617,
-3.4581,
-3.2782,
-3.3739 
-],
-[
- "Fall 2012",
-3.2987,
-3.3058,
-3.3442,
-3.2193,
-3.3234 
-],
-[
- "Spring 2013",
-3.1997,
-3.4049,
-3.2796,
-3.266,
-3.2897 
-],
-[
- "Fall 2013",
-3.3617,
-3.3255,
-3.2318,
-3.1073,
-3.2603 
-],
-[
- "Spring 2014",
-3.3697,
-3.3609,
-3.3192,
-3.2187,
-3.2116 
+ "2013-2014",
+15,
+25,
+24,
+30 
 ] 
 ];
-data.addColumn('string','Time');
-data.addColumn('number','Alpha Epsilon Pi');
-data.addColumn('number','Alpha Tau Omega');
-data.addColumn('number','Beta Theta Pi');
-data.addColumn('number','Delta Phi');
-data.addColumn('number','Sigma Phi Epsilon');
+data.addColumn('string','Year');
+data.addColumn('number','First-time, first-year (freshman) Men (%)');
+data.addColumn('number','Men who join a fraternity (%)');
+data.addColumn('number','First-time, first-year (freshman) Women (%)');
+data.addColumn('number','Women who join a sorority (%)');
 data.addRows(datajson);
 return(data);
 }
 
 
 // jsDrawChart
-function drawChartLineChartID7c5041e76cf2() {
-var data = gvisDataLineChartID7c5041e76cf2();
+function drawChartLineChartID7c502d2814b4() {
+var data = gvisDataLineChartID7c502d2814b4();
 var options = {};
 options["allowHtml"] = true;
-options["title"] = "Fraternity GPA";
+options["title"] = "Percentage of Freshmen Joining Greek Life";
 options["fontSize"] =     11;
-options["hAxis"] = {textStyle:{fontSize:7.5}};
 options["width"] =    600;
 options["height"] =    400;
 
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID7c5041e76cf2')
+    document.getElementById('LineChartID7c502d2814b4')
     );
     chart.draw(data,options);
     
@@ -213,9 +115,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID7c5041e76cf2);
+callbacks.push(drawChartLineChartID7c502d2814b4);
 })();
-function displayChartLineChartID7c5041e76cf2() {
+function displayChartLineChartID7c502d2814b4() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -241,12 +143,12 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID7c5041e76cf2"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID7c502d2814b4"></script>
 
 
 <!-- divChart -->
   
-<div id="LineChartID7c5041e76cf2" 
+<div id="LineChartID7c502d2814b4" 
   style="width: 600px; height: 400px;">
 </div>
 

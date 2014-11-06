@@ -1,5 +1,5 @@
 <!-- LineChart generated in R 3.1.1 by googleVis 0.5.4 package -->
-<!-- Sun Nov  2 12:48:39 2014 -->
+<!-- Wed Nov  5 21:43:18 2014 -->
 
 
 <!-- jsHeader -->
@@ -7,7 +7,7 @@
 
 
 // jsData 
-function gvisDataLineChartID65f036705ff1 () {
+function gvisDataLineChartID7c5040a1a5ab () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -176,21 +176,19 @@ return(data);
 
 
 // jsDrawChart
-function drawChartLineChartID65f036705ff1() {
-var data = gvisDataLineChartID65f036705ff1();
+function drawChartLineChartID7c5040a1a5ab() {
+var data = gvisDataLineChartID7c5040a1a5ab();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Sorority GPA";
-options["fontSize"] =     10;
-options["vAxis.viewWindowMode"] = "pretty";
-options["hAxis.slantedTextAngle"] =     90;
-options["hAxis.textStyle"] = {fontSize:7};
+options["fontSize"] =     11;
+options["hAxis"] = {textStyle:{fontSize:7.5}};
 options["width"] =    600;
-options["height"] =    500;
+options["height"] =    400;
 
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID65f036705ff1')
+    document.getElementById('LineChartID7c5040a1a5ab')
     );
     chart.draw(data,options);
     
@@ -215,9 +213,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID65f036705ff1);
+callbacks.push(drawChartLineChartID7c5040a1a5ab);
 })();
-function displayChartLineChartID65f036705ff1() {
+function displayChartLineChartID7c5040a1a5ab() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -243,11 +241,12 @@ callbacks.shift()();
 
 
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID65f036705ff1"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID7c5040a1a5ab"></script>
 
 
 <!-- divChart -->
   
-<div id="LineChartID65f036705ff1" 
-  style="width: 600; height: 500;">
+<div id="LineChartID7c5040a1a5ab" 
+  style="width: 600px; height: 400px;">
 </div>
+
