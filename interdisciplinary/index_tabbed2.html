@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+    <title>Oh the places you'll go (for class)</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+      /*body {background-color: #00e5fa}*/
+    </style>
+</head>
+
+<body>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h1>Oh the places you'll go</h1>
+        <p>A geospatial look at some interdisciplinary majors (and some not so interdisciplicanary)!</p>
+        <p>How do you make a liberal artsy school even liberal artsier? You choose an interdisciplinary major! This project looks at requirements for several majors at the College of William & Mary that include classes from other departments.</p>
+        <p>Map designed and implemented using Mapbox Studio. Coordinates courtesy of GeoNames and geojson.io (thanks ya'll). Shoutout to Python for being my bread and butter.</p>
+        <p><small>*Click on the markers for building names and classes that count toward each major's requirements. Circles indicate departments located in the same building*</small></p>
+
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#ir" data-toggle="tab">International Relations</a></li>
+          <li><a href="#policy" data-toggle="tab">Public Policy</a></li>
+          <li><a href="#ensp" data-toggle="tab">ENSP</a></li>
+          <li><a href="#medieval" data-toggle="tab">Medieval & Renaissance</a></li>
+          <li><a href="#neuro" data-toggle="tab">Neuroscience</a></li>
+          <li><a href="#math" data-toggle="tab">Mathematics</a></li>
+          <li><a href="#bio" data-toggle="tab">Biology</a></li>
+          <li><a href="#english" data-toggle="tab">Englsih</a></li>
+        </ul>
+            
+        <div class="tab-content">
+          
+          <div class="tab-pane active" id="ir">
+            <div class="well well-sm">International Relations (Morton Hall): Economics, History, Government, Religion, Psychology, Anthropology</div>
+            <div id='ir-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #hello -->
+          
+          <div class="tab-pane active" id="policy">
+            <div class="well well-sm">Public Policy (Morton Hall): Business, Economics, Government, Sociology, Mathematics, Psychology, Philosophy, Religion</div>
+            <div id='policy-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #empty -->
+          
+          <div class="tab-pane active" id="ensp">
+            <div class="well well-sm">Environmental Science and Policy (Keck Environmental Field Lab): Government, Economics, Sociology, Kinesiology, Chemistry, English, Religion, Anthropology</div>
+            <div id='ensp-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #templates -->
+          
+          <div class="tab-pane active" id="medieval">
+            <div class="well well-sm">Medieval and Renaissance Studies (Tyler Hall): History, Music, Art History, English, Modern Languages (French, German, Spanish, Italian), Religion, Philosophy</div>
+            <div id='medieval-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #bluths -->
+
+          <div class="tab-pane active" id="neuro">
+            <div class="well well-sm">Neuroscience (Integrated Science Center): Biology, Chemistry, Psychology, Mathematics, Kinesiology, Applied Science (not on the map)</div>
+            <div id='neuro-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #bluths -->
+
+          <div class="tab-pane active" id="math">
+            <div class="well well-sm">Mathematics (Jones Hall): Computer Science, Physics, Economics</div>
+            <div id='math-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #bluths -->
+
+          <div class="tab-pane active" id="bio">
+            <div class="well well-sm">Biology (Integrated Science Center): Chemistry, Mathematics</div>
+            <div id='biology-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #bluths -->
+
+          <div class="tab-pane active" id="english">
+            <div class="well well-sm">English (Tucker Hall)</div>
+            <div id='english-map' style="height:600px; margin:0,auto;"></div>
+          </div><!-- @end #bluths -->
+
+        </div><!-- @end .tab-content -->
+        
+      </div><!-- @end .span12 -->
+    </div><!-- @end .row -->
+  </div><!-- @end .container -->
+  <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.7109,
+                  37.27019
+                ]
+              },
+              "properties": {
+                "name": "Washington Hall: Anthropology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71694,
+                  37.2675
+                ]
+              },
+              "properties": {
+                "name": "Morton Hall: Government, Economics, History",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.718305,
+                  37.266253
+                ]
+              },
+              "properties": {
+                "name": "Bussiness School: Business",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.714443,
+                  37.269331
+                ]
+              },
+              "properties": {
+                "name": "ISC: Psychology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.709008,
+                  37.270850
+                ]
+              },
+              "properties": {
+                "name": "Wren Building: Religion",
+                "marker-color": "#E97335"
+              }
+            }
+          ]
+            ;
+        
+      var map = L.mapbox.map('ir-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.26820,-76.715000], 17);
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.    // Fill opacity
+      };
+      
+      var circle_one = L.circle([37.26746, -76.717271], 30, circle_options).addTo(featureGroup); // Government
+      var circle_two = L.circle([37.267765, -76.717], 30, circle_options).addTo(featureGroup); // Economics
+      var circle_three = L.circle([37.267231, -76.7169], 30, circle_options).addTo(featureGroup); // History
+      // var circle_four = L.circle([37.2675, -76.7165], 35, circle_options).addTo(featureGroup);
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.2675, -76.71694],
+        [37.270850, -76.709008], // Wren Building (Religions)
+        [37.2675, -76.71694],
+        [37.269331,-76.714443], // ISC (Psychology)
+        [37.2675, -76.71694],
+        [37.266253, -76.718305], // Miller (Business)
+        [37.2675, -76.71694],
+        [37.27019,-76.7109], // Washington (Anthropology)
+        [37.2675, -76.71694]
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+    </script>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71181619167328,
+                  37.271448843303716
+                ]
+              },
+              "properties": {
+                "name": "James Blair Hall: Philosophy",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71677,
+                  37.268
+                ]
+              },
+              "properties": {
+                "name": "Jones Hall: Mathematics",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71694,
+                  37.2675
+                ]
+              },
+              "properties": {
+                "name": "Morton Hall: Government, Economics, Sociology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.718305,
+                  37.266253
+                ]
+              },
+              "properties": {
+                "name": "Bussiness School: Business",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.714443,
+                  37.269331
+                ]
+              },
+              "properties": {
+                "name": "ISC: Psychology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.709008,
+                  37.270850
+                ]
+              },
+              "properties": {
+                "name": "Wren Building: Religion",
+                "marker-color": "#E97335"
+              }
+            }
+          ]
+            ;
+        
+      var map = L.mapbox.map('policy-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.26820,-76.715000], 17);
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.    // Fill opacity
+      };
+      
+      var circle_one = L.circle([37.26746, -76.717271], 30, circle_options).addTo(featureGroup); // Government
+      var circle_two = L.circle([37.267765, -76.717], 30, circle_options).addTo(featureGroup); // Economics
+      var circle_three = L.circle([37.267231, -76.7169], 30, circle_options).addTo(featureGroup); // Sociology
+      // var circle_four = L.circle([37.2675, -76.7165], 35, circle_options).addTo(featureGroup);
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.2675, -76.71694],
+        [37.270850, -76.709008], // Wren Building (Religions)
+        [37.2675, -76.71694],
+        [37.269331,-76.714443], // ISC (Psychology)
+        [37.2675, -76.71694],
+        [37.266253, -76.718305], // Miller (Business)
+        [37.2675, -76.71694],
+        [37.269331, -76.714443], // ISC (Psychology)
+        [37.2675, -76.71694],
+        [37.268, -76.71677], // Jones (Mathematics)
+        [37.2675, -76.71694],
+        [37.271448843303716, -76.71181619167328] // Blair(Philosophy)
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+    </script>
+
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.7109,
+                  37.27019
+                ]
+              },
+              "properties": {
+                "name": "Washington Hall: Anthropology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.705068,
+                  37.264780
+                ]
+              },
+              "properties": {
+                "name": "Marshall Wythe Hall: Law",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71,
+                  37.271448843303716
+                ]
+              },
+              "properties": {
+                "name": "Tucker Hall: English",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.7225,
+                  37.26972
+                ]
+              },
+              "properties": {
+                "name": "Keck Environmental Field Lab",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71694,
+                  37.2675
+                ]
+              },
+              "properties": {
+                "name": "Morton Hall Government, Economics, Sociology, History",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71833,
+                  37.26861
+                ]
+              },
+              "properties": {
+                "name": "Adair Hall: Kinesiology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.714443,
+                  37.269331
+                ]
+              },
+              "properties": {
+                "name": "ISC: Chemistry",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.709008,
+                  37.270850
+                ]
+              },
+              "properties": {
+                "name": "Wren Building: Religion",
+                "marker-color": "#E97335"
+              }
+            }
+          ]
+            ;
+        
+      var map = L.mapbox.map('ensp-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.2690000,-76.71400], 16)
+        
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.26972,-76.7225],
+        [37.270850,-76.709008], // Wren (Religion)
+        [37.26972,-76.7225],
+        [37.26861,-76.71833], // Adair (Kinesiology)
+        [37.26972,-76.7225],
+        [37.27019,-76.7109], // Washington (Anthropology)
+        [37.26972,-76.7225], 
+        [37.271448843303716,-76.71], // Tucker (English)
+        [37.26972,-76.7225],
+        [37.2675,-76.71694], // Morton (Government)
+        [37.26972,-76.7225],
+        [37.269331,-76.714443], // ISC (Chemistry)
+        [37.26972,-76.7225],
+        [37.264780, -76.705068] // Marshall Wythe (Law)
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+      
+    </script>
+        <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71079,
+                  37.27154
+                ]
+              },
+              "properties": {
+                "name": "Tyler Hall",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71181619167328,
+                  37.271448843303716
+                ]
+              },
+              "properties": {
+                "name": "James Blair Hall: Philosophy",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71694,
+                  37.2675
+                ]
+              },
+              "properties": {
+                "name": "Morton Hall: History",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.715301,
+                  37.268379
+                ]
+              },
+              "properties": {
+                "name": "Andrews Hall: Art History",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.70996,
+                  37.27015
+                ]
+              },
+              "properties": {
+                "name": "Ewell Hall: Music",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71,
+                  37.271448843303716
+                ]
+              },
+              "properties": {
+                "name": "Tucker Hall: English",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.7109,
+                  37.27019
+                ]
+              },
+              "properties": {
+                "name": "Washington Hall: French, German, Hispanic Studies, Italian",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.709008,
+                  37.270850
+                ]
+              },
+              "properties": {
+                "name": "Wren Building: Religion",
+                "marker-color": "#E97335"
+              }
+            }
+          ]
+            ;
+        
+      var map = L.mapbox.map('medieval-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.270,-76.71350], 17);
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.    // Fill opacity
+      };
+      
+      // var circle_one = L.circle([37.2675, -76.71735], 40, circle_options).addTo(featureGroup); // Government
+      // var circle_two = L.circle([37.2678, -76.7171], 40, circle_options).addTo(featureGroup); // Economics
+      // var circle_three = L.circle([37.2672, -76.7169], 40, circle_options).addTo(featureGroup); // Sociology
+      // var circle_four = L.circle([37.2675, -76.7165], 35, circle_options).addTo(featureGroup);
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.27154, -76.71079],
+        [37.270850, -76.709008], // Wren Building (Religions)
+        [37.27154, -76.71079],
+        [37.2675, -76.71694], // Morton (History)
+        [37.27154, -76.71079],
+        [37.27015, -76.70996], // Ewell (Music)
+        [37.27154, -76.71079],
+        [37.271448843303716, -76.71], // Tucker (English)
+        [37.27154, -76.71079],
+        [37.27019, -76.7109], // Washington (Languages)
+        [37.27154, -76.71079],
+        [37.271448843303716, -76.71181619167328], //Blair (Philosophy)
+        [37.27154, -76.71079],
+        [37.268379, -76.715301]
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+    </script>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.714443,
+                  37.269331
+                ]
+              },
+              "properties": {
+                "name": "ISC: Biology, Chemistry, Psychology",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71677,
+                  37.268
+                ]
+              },
+              "properties": {
+                "name": "Jones Hall: Mathematics",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71833,
+                  37.26861
+                ]
+              },
+              "properties": {
+                "name": "Adair Hall: Kinesiology",
+                "marker-color": "#E97335"
+              }
+            }
+          ]
+            ;
+        
+      var map = L.mapbox.map('neuro-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.26894,-76.715910], 18);
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.    // Fill opacity
+      };
+      
+      var circle_one = L.circle([37.2695955, -76.714443], 30, circle_options).addTo(featureGroup); // Biology
+      var circle_two = L.circle([37.26906, -76.714443], 30, circle_options).addTo(featureGroup); // Chemistry
+      var circle_three = L.circle([37.269331, -76.7141], 30, circle_options).addTo(featureGroup); // Psychology
+      // var circle_four = L.circle([37.2675, -76.7165], 35, circle_options).addTo(featureGroup);
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.269331, -76.714443],
+        [37.268,-76.71677], // Jones (Mathematics)
+        [37.269331, -76.714443],
+        [37.26861, -76.71833], // Adair (Kinesiology)
+        [37.269331, -76.714443],
+        //[] // Applied Science
+
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+    </script>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71677,
+                  37.268
+                ]
+              },
+              "properties": {
+                "name": "Jones Hall",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71179473400115,
+                  37.270138288300345
+                ]
+              },
+              "properties": {
+                "name": "McGlothlin-Street Hall: Computer Science",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71694,
+                  37.2675
+                ]
+              },
+              "properties": {
+                "name": "Morton Hall: Economics",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71722,
+                  37.26889
+                ]
+              },
+              "properties": {
+                "name": "Small Hall: Physics",
+                "marker-color": "#E97335"
+              }
+            }
+            
+          ]
+            ;
+        
+      var map = L.mapbox.map('math-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.2690000,-76.715000], 17)
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.268,-76.71677],
+        [37.270138288300345,-76.71179473400115], // McGlothlin Street (Computer Science)
+        [37.268,-76.71677],
+        [37.2675,-76.71694], // Morton (Economics)
+        [37.268,-76.71677],
+        [37.26889,-76.71722], // Small (Physics)
+        [37.268,-76.71677] // REMEBER TO ADD: School of Education (Education)
+      
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+      
+    </script>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71677,
+                  37.268
+                ]
+              },
+              "properties": {
+                "name": "Jones Hall: Mathematics",
+                "marker-color": "#E97335"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.714443,
+                  37.269331
+                ]
+              },
+              "properties": {
+                "name": "ISC: Chemistry",
+                "marker-color": "#E97335"
+              }
+            }
+            
+          ]
+            ;
+        
+      var map = L.mapbox.map('biology-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.269000,-76.715000], 18)
+        
+        
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.    // Fill opacity
+      };
+      
+      var circle_one = L.circle([37.269331,-76.7140356], 35, circle_options).addTo(featureGroup); // Chemistry
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+        [37.269331,-76.714443],
+        [37.268,-76.71677] // Jones (Math)
+      
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+      
+    </script>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmluYWJyb2t3YSIsImEiOiJkcUF1TWlVIn0.YzBtz0O019DJGk3IpFi72g';
+        
+        var geojson = 
+      
+          [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.71,
+                  37.271448843303716
+                ]
+              },
+              "properties": {
+                "name": "Tucker Hall: English",
+                "marker-color": "#E97335"
+              }
+            }
+          ];
+        
+      var map = L.mapbox.map('english-map', 'kelvinabrokwa.335851e7', {
+        scrollWheelZoom: false
+      })
+        .setView([37.2712000,-76.710011], 18)
+        
+      
+      var featureGroup = L.featureGroup().addTo(map);
+      
+      // Circle Options
+      var circle_options = {
+        color: '#E97335',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 4,         // Stroke weight
+        fillColor: '#E97335',  // Fill color
+        fillOpacity: 0.4    // Fill opacity
+      };
+      
+      var circle_one = L.circle([37.271448843303716,-76.71], 35, circle_options).addTo(featureGroup); // English, mutha******, do you speak it?!
+      
+      
+      
+      
+      // Create array of lat,lon points
+      var line_points = [
+      
+        
+      ];
+      
+      // Define polyline options
+      // http://leafletjs.com/reference.html#polyline
+      var polyline_options = {
+        color: '#E97335',
+        opacity: 1,
+        weight: 4
+      }
+      
+      // Defining a polygon here instead of a polyline will connect the
+      // endpoints and fill the path.
+      // http://leafletjs.com/reference.html#polygon
+      var polyline = L.polyline(line_points, polyline_options).addTo(featureGroup);
+      
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: featureGroup
+        }
+      }).addTo(map);
+      
+      map.on('draw:created', function(e) {
+          featureGroup.addLayer(e.layer);
+      });
+      
+      var featureLayer = L.mapbox.featureLayer({
+        type: 'FeatureCollection',
+        features: geojson
+      })
+      .addTo(map);
+      
+      featureLayer.eachLayer(function(layer) {
+      
+        
+        var content = layer.feature.properties.name;
+        layer.bindPopup(content);
+      });
+    </script>
+    <script>
+      (function{
+        ('#myTab a').click(function(e) {
+          e.preventDefault();
+          (this).tab('show');
+        });
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+</body>
+</html>
