@@ -1,60 +1,113 @@
-<!DOCTYPE html>
-
+<!-- DOCTYPE html -->
 <html>
-
 	<head>
+		<meta name="author" content="Kelvin Abrokwa-Johnson">
+		<script type="text/javascript" charset="utf-8" src="js/grade_calc.js"></script>
 		<title>Grade Calculator</title>
-		<!--line rel="stylesheet" href="styles/main.css"-->
-
-			<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	</head>
-
 	<body>
-		
-		<body>
-		    <div class="row">
-		        <div class="container">
-		            <div class="panel panel-default">
-		                <div class="panel-heading">
-		                    <h3 class="panel-title">Grade Calculator</h3>
-		                </div>
-		                
-		                <div class="panel-body">
-		                    This app will calculate your current class average
-		                    <div class="input-group">
-		                          <span class="input-group-addon">Category</span>
-		                          <input type="text" class="form-control" placeholder="eg. test, quizzes, homework">
-		                    </div>
-		                </div>
-						
+		<h1>Grade Calculator</h1>
+		<button typer="button" onclick="verifyWeights(weight_dict)">Verify Category Weighting</button>
+		<p id="error_check"></p>
 
-						<script src="bower_components/jquery/jquery.js"></script>
-						<script>
+		<button type="button" onclick="main()">Calculate Averages</button>
+		<table>
+			<tr>
+				<td>Exam Average</td>
+				<td id="first"></td>
+			</tr>
+			<tr>
+				<td>Quiz Average</td>
+				<td id="second"></td>
+			</tr>
+			<tr>
+				<td>Homework Average</td>
+				<td id="third"></td>
+			</tr>
+			<tr>
+				<td>Class Average</td>
+				<td id="class_avg"></td>
+			</tr>
+		</table>
+		<p>You need the grade below! Good Luck</p>
+		<button type="button" onclick="getAnswer()">Get Grade Needed</button>
+		<p id="output"></p>
+		<script>
+			
+			// Check to see if percentages in associative array add up to 100
+			function verifyWeights(weight_dictionary) {
+				var total_percentage = 0;
+				for (key in weight_dictionary) {
+					total_percentage = total_percentage + weight_dictionary[key];
+				}
+				if (total_percentage == 100) {
+					document.getElementById("error_check").innerHTML = "The percentages check out!";
+				} else {
+					document.getElementById("error_check").innerHTML = "Error: Percetage above or below 100"
+				};
+			};
 
-						$(function() {
+			// Calculate average of all grages in a category
+			function getAverage(list_of_grades) {
+				var total = 0;
+				for (i=0; i < list_of_grades.length; i++) {
+					total = total + list_of_grades[i];
+				}
+				var average = total / list_of_grades.length;
+				return average;
+			};
+
+			/////// Program inputs ////// Must take from user ///////
+			var weight_dict = {
+				"exams" : 40,
+				"quizzes" : 30,
+				"homework" : 30
+			};
+
+			var grade_dict = {
+				"exams" : [90,87],
+				"quizzes" : [90,80,70,87],
+				"homework" : [70,90,94,96,100,85]
+			};
+
+			var avg_dict = {
+				"exams" : 88.5,
+				"quizzes" : 81.75,
+				"homework" : 89.167
+			};
+
+			var target_grade = 86;
+			var cat_choice = "exams"; 
+			///////////////////////////////////////////////////////////
+
+			function calculateClassAverage(weight_dictionary, average_dictionary) {
+				var class_average = 0;
+				for (key in average_dictionary) {
+					partial = (weight_dictionary[key] / 100) * average_dictionary[key];
+					class_average = class_average + partial;
+				}
+				return class_average;
+			};
+
+			function main() {
+				document.getElementById("first").innerHTML = getAverage(grade_dict.exams);
+				document.getElementById("second").innerHTML = getAverage(grade_dict.quizzes);
+				document.getElementById("third").innerHTML = getAverage(grade_dict.homework);
+				document.getElementById("class_avg").innerHTML = calculateClassAverage(weight_dict, avg_dict);
+
+			}
+			class_avg = calculateClassAverage(weight_dict, avg_dict);
+			var formula1 = ( target_grade - ( class_avg - (avg_dict[cat_choice] * (weight_dict[cat_choice] / 100) ) ) );
+			var formula2 = ( ( grade_dict[cat_choice].length + 1 ) / ( weight_dict[cat_choice] / 100 ) );
+			var formula3 = (avg_dict[cat_choice] * grade_dict[cat_choice].length);
+			
+			var output =  formula1 * formula2 - formula3 ;
+
+			function getAnswer() {
+				document.getElementById("output").innerHTML = output;
+			};
 
 
-
-						})
-
-
-
-						</script>		            
-
-
-
-		            </div>
-		        </div>
-		    </div>
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
+		</script>
 	</body>
-
 </html>
