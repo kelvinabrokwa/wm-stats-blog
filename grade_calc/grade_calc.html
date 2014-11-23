@@ -13,19 +13,28 @@
 		<button type="button" onclick="main()">Calculate Averages</button>
 		<table>
 			<tr>
+				<td>Category</td>
+				<td>Weight</td>
+				<td>Current Average</td>
+			</tr>
+			<tr>
 				<td>Exam Average</td>
+				<td id="first_weight"></td>
 				<td id="first"></td>
 			</tr>
 			<tr>
 				<td>Quiz Average</td>
+				<td id="second_weight"></td>
 				<td id="second"></td>
 			</tr>
 			<tr>
 				<td>Homework Average</td>
+				<td id="third_weight"></td>
 				<td id="third"></td>
 			</tr>
 			<tr>
 				<td>Class Average</td>
+				<td id="total_weight"></td>
 				<td id="class_avg"></td>
 			</tr>
 		</table>
@@ -57,7 +66,7 @@
 				return average;
 			};
 
-			/////// Program inputs ////// Must take from user ///////
+			///// Program inputs ///////// Must take from user /////
 			var weight_dict = {
 				"exams" : 40,
 				"quizzes" : 30,
@@ -91,9 +100,13 @@
 
 			function main() {
 				document.getElementById("first").innerHTML = getAverage(grade_dict.exams);
+				document.getElementById("first_weight").innerHTML = weight_dict["exams"] + "%"
 				document.getElementById("second").innerHTML = getAverage(grade_dict.quizzes);
+				document.getElementById("second_weight").innerHTML = weight_dict["quizzes"] + "%"
 				document.getElementById("third").innerHTML = getAverage(grade_dict.homework);
+				document.getElementById("third_weight").innerHTML = weight_dict["homework"] + "%"
 				document.getElementById("class_avg").innerHTML = calculateClassAverage(weight_dict, avg_dict);
+				document.getElementById("total_weight").innerHTML = "100%"
 
 			}
 			class_avg = calculateClassAverage(weight_dict, avg_dict);
@@ -106,8 +119,6 @@
 			function getAnswer() {
 				document.getElementById("output").innerHTML = output;
 			};
-
-
 		</script>
 	</body>
 </html>
