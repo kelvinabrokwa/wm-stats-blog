@@ -1,0 +1,64 @@
+<!-- DOCTYPE html -->
+<html>
+<head>
+	<title>Page Skeleton</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			('.test_div').append('<p>This is new text</p>')
+		});
+	</script>
+</head>
+<body>
+	<p>Input Categories one by one</p>
+	<form id="form" onsubmit="return false;">
+	    <input type="text" id="category_input" />
+	    <input type="submit" onclick="createCategoryList();" />
+	</form>
+	<p id="category_input_echo"></p>
+
+	<script type="text/javascript">
+		var category_list = [];
+		function createCategoryList() {
+			var input = document.getElementById("category_input").value;
+			category_list[category_list.length] = input;
+			document.getElementById("category_input_echo").innerHTML = category_list;
+		};
+
+		/*
+		// Failed attempt to remove blank entries into the category list
+		function cleanCategoryList() {
+			for (var i = 0; i < category_list.length; i++) {
+				if (category_list[i] == "") {
+					remove it somehow
+				};
+			};
+		};
+
+		document.getElementById('cats').innerHTML = category_list;
+		*/
+
+		var weight_dict = {};
+		var grade_dict = {};
+		var avg_dict = {};
+		function createDictionaries() {
+			for (var i = 0; i < category_list.length; i++) {
+				weight_dict[i] = 0;
+				grade_dict[i] = [];
+				avg_dict[i] = 0;
+			};
+		};
+		function addWeights() {
+			1. Create form for every cat
+			2. user populate 
+			3. I take in the info and compute
+		};
+
+		function addGrades() {
+
+		};
+		function populateWeightDict() {
+			pass
+		};
+	</script>
+</body>
+</html>

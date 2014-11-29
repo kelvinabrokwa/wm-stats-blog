@@ -21,7 +21,7 @@ def addGrade(category, new_grade):
 def getAverage(list_of_grades):
 	"""Calculate Average of all grades in a category, input must be a list. Input is a list of grades."""
 	total = 0
-	for i in list_of_grades:</html>
+	for i in list_of_grades:
 		total += i
 	average = total / len(list_of_grades)
 	return average
