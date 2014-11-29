@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$new_form = $("<p>This is new text</p>");
+		$(document).ready(function(){
+			$("#addCategory").click(function(){
+		    // Add code for adding new category form here
+		    $('.form').append($new_form)
+		  });
+		});
+	</script>
+</head>
+<body>
+	<button id="addCategory" type="button">Add Category</button>
+	<div class="form"></div>
+
+
+</body>
+</html>

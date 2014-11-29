@@ -108,6 +108,7 @@
             <p id="output"></p>
         </div>
     </div>
+    
     <script>
         // Average calculator, takes an array of numbers as an input
         function calculate_average(list_of_grades) {
@@ -124,12 +125,19 @@
         var grade_dict = {};
         var avg_dict = {};
         
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ///////////////// WORKING CODE /////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////        
+
         function populate_cat1() {
             cat1_name = document.getElementById("cat1_name").value;
             cat1_weight = document.getElementById("cat1_weight").value;
             cat1_weight = Number(cat1_weight)
             cat1_grades = document.getElementById("cat1_grades").value;
-            
             if (cat1_grades == "") {
                 cat1 = {
                     name : cat1_name,
@@ -147,11 +155,10 @@
             };
             
         };
-        
         function add_cat1() {
             name_dict['cat1'] = cat1.name;
             weight_dict['cat1'] = cat1.weight;
-            grade_dict['cat1'] = cat1.grades
+            grade_dict['cat1'] = cat1.grades;
             if (cat1.grades != 'null') {    
                 avg_dict['cat1'] = calculate_average(cat1.grades);
                 document.getElementById("echo1").innerHTML = name_dict.cat1 + " average is " + avg_dict.cat1 + "%";
@@ -161,7 +168,320 @@
             };
             
         };
+
+        function populate_cat2() {
+            cat2_name = document.getElementById("cat2_name").value;
+            cat2_weight = document.getElementById("cat2_weight").value;
+            cat2_weight = Number(cat2_weight);
+            cat2_grades = document.getElementById("cat2_grades").value;
+            
+            if (cat2_grades == "") {
+                cat2 = {
+                    name : cat2_name,
+                    weight : cat2_weight,
+                    grades : 'null'
+                };
+            } else {
+                cat2_grades = cat2_grades.split(',').map(Number);
+                cat2 = {
+                    name : cat2_name,
+                    weight : cat2_weight,
+                    grades : cat2_grades
+                };
+            };
+        };
         
+        function add_cat2() {
+            name_dict['cat2'] = cat2.name;
+            weight_dict['cat2'] = cat2.weight;
+            grade_dict['cat2'] = cat2.grades;
+            if (cat2.grades != 'null') {
+                avg_dict['cat2'] = calculate_average(cat2.grades);
+                document.getElementById('echo2').innerHTML = name_dict.cat2 + " average is " + avg_dict.cat2 + "%";
+            } else {
+                avg_dict['cat2'] = 'null';
+                document.getElementById('echo2').innerHTML = name_dict.cat2 + " average is not available";
+            };
+        };
+
+        function populate_cat3() {
+            cat3_name = document.getElementById("cat3_name").value;
+            cat3_weight = document.getElementById("cat3_weight").value;
+            cat3_weight = Number(cat3_weight);
+            cat3_grades = document.getElementById("cat3_grades").value;
+            
+            if (cat3_grades == "") {
+                cat3 = {
+                    name : cat3_name,
+                    weight : cat3_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat3_grades = cat3_grades.split(',').map(Number);
+                cat3 = {
+                    name : cat3_name,
+                    weight : cat3_weight,
+                    grades : cat3_grades
+                };
+            };
+            
+        };
+        
+        function add_cat3() {
+            name_dict['cat3'] = cat3.name;
+            weight_dict['cat3'] = cat3.weight;
+            grade_dict['cat3'] = cat3.grades;
+            if (cat3.grades != 'null') {    
+                avg_dict['cat3'] = calculate_average(cat3.grades);
+                document.getElementById("echo3").innerHTML = name_dict.cat3 + " average is " + avg_dict.cat3 + "%";
+            } else {
+                avg_dict['cat3'] = 'null';
+                document.getElementById('echo3').innerHTML = name_dict.cat3 + " average is not available";
+            };
+        };
+
+        function populate_cat4() {
+            cat4_name = document.getElementById("cat4_name").value;
+            cat4_weight = document.getElementById("cat4_weight").value;
+            cat4_weight = Number(cat4_weight);
+            cat4_grades = document.getElementById("cat4_grades").value;
+            
+            if (cat4_grades == "") {
+                cat4 = {
+                    name : cat4_name,
+                    weight : cat4_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat4_grades = cat4_grades.split(',').map(Number);
+                cat4 = {
+                    name : cat4_name,
+                    weight : cat4_weight,
+                    grades : cat4_grades
+                };
+            };
+            
+        };
+        
+        function add_cat4() {
+            name_dict['cat4'] = cat4.name;
+            weight_dict['cat4'] = cat4.weight;
+            grade_dict['cat4'] = cat4.grades;
+            if (cat4.grades != 'null') {    
+                avg_dict['cat4'] = calculate_average(cat4.grades);
+                document.getElementById("echo4").innerHTML = name_dict.cat4 + " average is " + avg_dict.cat4 + "%";
+            } else {
+                avg_dict['cat4'] = 'null';
+                document.getElementById('echo4').innerHTML = name_dict.cat4 + " average is not available";
+            };
+        };
+
+        function populate_cat5() {
+            cat5_name = document.getElementById("cat5_name").value;
+            cat5_weight = document.getElementById("cat5_weight").value;
+            cat5_weight = Number(cat5_weight);
+            cat5_grades = document.getElementById("cat5_grades").value;
+            
+            if (cat5_grades == "") {
+                cat5 = {
+                    name : cat5_name,
+                    weight : cat5_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat5_grades = cat5_grades.split(',').map(Number);
+                cat5 = {
+                    name : cat5_name,
+                    weight : cat5_weight,
+                    grades : cat5_grades
+                };
+            };
+        };
+        
+        function add_cat5() {
+            name_dict['cat5'] = cat5.name;
+            weight_dict['cat5'] = cat5.weight;
+            grade_dict['cat5'] = cat5.grades;
+            if (cat5.grades != 'null') {    
+                avg_dict['cat5'] = calculate_average(cat5.grades);
+                document.getElementById("echo5").innerHTML = name_dict.cat5 + " average is " + avg_dict.cat5 + "%";
+            } else {
+                avg_dict['cat5'] = 'null';
+                document.getElementById('echo5').innerHTML = name_dict.cat5 + " average is not available";
+            };
+        };
+
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /////////////// COPY PASTE CODE ////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /*
+        function populate_cat2() {
+            alert('error');
+            cat2_name = document.getElementById("cat2_name").value;
+            cat2_weight = document.getElementById("cat2_weight").value;
+            cat2_weight = Number(cat2_weight);
+            cat2_grades = document.getElementById("cat2_grades").value;
+            
+            if (cat2_grades == "") {
+                cat2 = {
+                    name : cat2_name,
+                    weight : cat2_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat2_grades = cat2_grades.split(',').map(Number);
+                cat2 = {
+                    name : cat2_name,
+                    weight : cat2_weight,
+                    grades : cat2_grades
+                };
+            };
+            
+        };
+        
+        function add_cat2() {
+            name_dict['cat2'] = cat2.name;
+            weight_dict['cat2'] = cat2.weight;
+            grade_dict['cat2'] = cat2.grades;
+            if (cat2.grades != 'null') {    
+                avg_dict['cat2'] = calculate_average(cat2.grades);
+                document.getElementById("echo2").innerHTML = name_dict.cat2 + " average is " + avg_dict.cat2 + "%";
+            } else {
+                avg_dict['cat2'] = 'null';
+                document.getElementById('echo2').innerHTML = name_dict.cat2 + " average is not available";
+            };
+            
+        };
+        
+        function populate_cat3() {
+            cat3_name = document.getElementById("cat3_name").value;
+            cat3_weight = document.getElementById("cat3_weight").value;
+            cat3_weight = Number(cat3_weight);
+            cat3_grades = document.getElementById("cat3_grades").value;
+            
+            if (cat3_grades == "") {
+                cat3 = {
+                    name : cat3_name,
+                    weight : cat3_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat3_grades = cat3_grades.split(',').map(Number);
+                cat3 = {
+                    name : cat3_name,
+                    weight : cat3_weight,
+                    grades : cat3_grades
+                };
+            };
+            
+        };
+        
+        function add_cat3() {
+            name_dict['cat3'] = cat3.name;
+            weight_dict['cat3'] = cat3.weight;
+            grade_dict['cat3'] = cat3.grades;
+            if (cat3.grades != 'null') {    
+                avg_dict['cat3'] = calculate_average(cat3.grades);
+                document.getElementById("echo3").innerHTML = name_dict.cat3 + " average is " + avg_dict.cat3 + "%";
+            } else {
+                avg_dict['cat3'] = 'null';
+                document.getElementById('echo3').innerHTML = name_dict.cat3 + " average is not available";
+            };
+            
+        };
+                         
+        function populate_cat4() {
+            cat4_name = document.getElementById("cat4_name").value;
+            cat4_weight = document.getElementById("cat4_weight").value;
+            cat4_weight = Number(cat4_weight);
+            cat4_grades = document.getElementById("cat4_grades").value;
+            
+            if (cat4_grades == "") {
+                cat4 = {
+                    name : cat4_name,
+                    weight : cat4_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat4_grades = cat4_grades.split(',').map(Number);
+                cat4 = {
+                    name : cat4_name,
+                    weight : cat4_weight,
+                    grades : cat4_grades
+                };
+            };
+            
+        };
+        
+        function add_cat4() {
+            name_dict['cat4'] = cat4.name;
+            weight_dict['cat4'] = cat4.weight;
+            grade_dict['cat4'] = cat4.grades;
+            if (cat4.grades != 'null') {    
+                avg_dict['cat4'] = calculate_average(cat4.grades);
+                document.getElementById("echo4").innerHTML = name_dict.cat4 + " average is " + avg_dict.cat4 + "%";
+            } else {
+                avg_dict['cat4'] = 'null';
+                document.getElementById('echo4').innerHTML = name_dict.cat4 + " average is not available";
+            };
+            
+        };
+                         
+        function populate_cat5() {
+            cat5_name = document.getElementById("cat5_name").value;
+            cat5_weight = document.getElementById("cat5_weight").value;
+            cat5_weight = Number(cat5_weight);
+            cat5_grades = document.getElementById("cat5_grades").value;
+            
+            if (cat5_grades == "") {
+                cat5 = {
+                    name : cat5_name,
+                    weight : cat5_weight,
+                    grades : 'null'
+                };
+            } else {
+                // convert grades to array of numbers
+                cat5_grades = cat5_grades.split(',').map(Number);
+                cat5 = {
+                    name : cat5_name,
+                    weight : cat5_weight,
+                    grades : cat5_grades
+                };
+            };
+            
+        };
+        
+        function add_cat5() {
+            name_dict['cat5'] = cat5.name;
+            weight_dict['cat5'] = cat5.weight;
+            grade_dict['cat5'] = cat5.grades;
+            if (cat5.grades != 'null') {    
+                avg_dict['cat5'] = calculate_average(cat5.grades);
+                document.getElementById("echo5").innerHTML = name_dict.cat5 + " average is " + avg_dict.cat5 + "%";
+            } else {
+                avg_dict['cat5'] = 'null';
+                document.getElementById('echo5').innerHTML = name_dict.cat5 + " average is not available";
+            };
+        };
+        */
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /////////////////  OLD CODE ////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /*
         function populate_cat2() {
             cat2_name = document.getElementById("cat2_name").value;
             cat2_weight = document.getElementById("cat2_weight").value;
@@ -181,7 +501,18 @@
             avg_dict['cat2'] = calculate_average(cat2.grades);
             document.getElementById("echo2").innerHTML = name_dict.cat2 + " average is " + avg_dict.cat2 + "%";
         };
+        */
+        //////////////////////////////////////////////////////////////////////////////////////////
+    
         
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /////////////////  OLD CODE  ///////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        /*
         function populate_cat3() {
             cat3_name = document.getElementById("cat3_name").value;
             cat3_weight = document.getElementById("cat3_weight").value;
@@ -241,6 +572,14 @@
             avg_dict['cat5'] = calculate_average(cat5.grades);
             document.getElementById("echo5").innerHTML = name_dict.cat5 + " average is " + avg_dict.cat5 + "%";
         }; 
+        */
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
         
         // Verify that weights add up to 100%
         function verify_weights() {
@@ -315,10 +654,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
